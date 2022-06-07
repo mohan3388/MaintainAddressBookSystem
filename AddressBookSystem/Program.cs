@@ -8,6 +8,7 @@ public class Program
         Console.WriteLine("Welcome To address book");
         AddressBook address = new AddressBook();
         bool check = true;
+         Console.WriteLine("1.Add contact Details");
         while(check)
         {
             Console.WriteLine("Enter Above option");
