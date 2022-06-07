@@ -8,117 +8,151 @@ namespace AddressBookSystem
 {
     public class AddressBook
     {
-        List<Contact> addressBook = new List<Contact>();
+        List<Contact> addBook = new List<Contact>();
+        Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         public AddressBook()
         {
-            Contact address1 = new Contact()
+            Contact contact1 = new Contact()
             {
-                FirstName = "Mohan",
-                LastName = "sahu",
-                Address = "bhiai",
-                City = "Durg",
+                firstName = "mohan",
+                lastName = "sahu",
+                Address = "green valey",
+                City = "bhilai",
                 State = "cg",
-                EmailAddress = "Mohan@14gmail.com",
-                PostalCode = 54665,
-                MobileNumber = 7898521457
+                Email = "sahu@12gmail.com",
+                Zip = 12451,
+                Phone = 744551552
+
             };
-            Contact address2 = new Contact()
+            Contact contact2 = new Contact()
             {
-                FirstName = "govind",
-                LastName = "bhatt",
-                Address = "pandaria",
-                City = "kawardha",
-                State = "chhattisgarh",
-                EmailAddress = "bhatt@12gmail.com",
-                PostalCode = 521014,
-                MobileNumber = 9320514785
+                firstName = "rajesh",
+                lastName = "sah",
+                Address = "green valey",
+                City = "bhilai",
+                State = "cg",
+                Email = "sahu@12gmail.com",
+                Zip = 12451,
+                Phone = 744551552
             };
-            Console.WriteLine("Enter the FirstName,LastName,Address,City,State,Email,postalCode,mobile,Number");
-            Contact address3 = new Contact()
+            Contact contact3 = new Contact()
             {
-                FirstName = Console.ReadLine(),
-                LastName = Console.ReadLine(),
+                firstName = Console.ReadLine(),
+                lastName = Console.ReadLine(),
                 Address = Console.ReadLine(),
                 City = Console.ReadLine(),
                 State = Console.ReadLine(),
-                EmailAddress = Console.ReadLine(),
-                PostalCode = Convert.ToInt32(Console.ReadLine()),
-                MobileNumber = Convert.ToInt64(Console.ReadLine())
+                Email = Console.ReadLine(),
+                Zip = Convert.ToInt32(Console.ReadLine()),
+                Phone = Convert.ToInt64(Console.ReadLine()),
             };
-            addressBook.Add(address1);
-            addressBook.Add(address2);
-            addressBook.Add(address3);
+            addBook.Add(contact1);
+            addBook.Add(contact2);
+            addBook.Add(contact3);
         }
-        public void AddContactToAddressBook(Contact contact)
+
+        internal void Adddict(object dictName)
         {
-            addressBook.Add(contact);
+            throw new NotImplementedException();
         }
+
         public void Display()
         {
-            foreach (var contact in addressBook)
+            foreach (var contact in addBook)
             {
-                Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.EmailAddress + " " + " " + contact.PostalCode + " " + contact.MobileNumber);
+                Console.WriteLine(contact.firstName + " " + contact.lastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + contact.Zip + " " + contact.Phone);
             }
         }
-        public void EditContactInAddressBook(string name)
+        public void EditAddress(string name)
         {
-            foreach (var contact in addressBook)
+            foreach (var contact in addBook)
             {
-                if (contact.FirstName.Equals(name))
+                if (contact.firstName.Equals(name))
                 {
-                    Console.WriteLine("Enter Option To Update");
+                    Console.WriteLine("1.firstname\n 2.lastname\n 3.Address\n 4.City\n 5.State\n 6.email\n 7.zip\n 8.phone");
+                    Console.WriteLine("choose any above option To Update");
                     int option = Convert.ToInt32(Console.ReadLine());
                     switch (option)
                     {
                         case 1:
-                            Console.WriteLine("Enter Firstname to Update");
-                            contact.FirstName = Console.ReadLine();
+                            Console.WriteLine("Type FirstName to Update");
+                            contact.firstName = Console.ReadLine();
                             break;
                         case 2:
-                            Console.WriteLine("Enter Lastname to Update");
-                            contact.LastName = Console.ReadLine(); 
+                            Console.WriteLine("Type LastName to Update");
+                            contact.lastName = Console.ReadLine();
                             break;
                         case 3:
-                            Console.WriteLine("Enter Address to Update");
-                            contact.Address = Console.ReadLine(); 
+                            Console.WriteLine("Type Address to Update");
+                            contact.Address = Console.ReadLine();
                             break;
                         case 4:
-                            Console.WriteLine("Enter City to Update");
-                            contact.City = Console.ReadLine(); 
+                            Console.WriteLine("Type City to Update");
+                            contact.City = Console.ReadLine();
                             break;
                         case 5:
-                            Console.WriteLine("Enter State to Update");
-                            contact.State = Console.ReadLine(); 
+                            Console.WriteLine("Type State to Update");
+                            contact.State = Console.ReadLine();
                             break;
                         case 6:
-                            Console.WriteLine("Enter Email to Update");
-                            contact.EmailAddress = Console.ReadLine(); 
+                            Console.WriteLine("Type Email to Update");
+                            contact.Email = Console.ReadLine();
                             break;
                         case 7:
-                            Console.WriteLine("Enter the Postal to Update");
-                            contact.PostalCode = Convert.ToInt32(Console.ReadLine()); 
-                            break;
+                            Console.WriteLine("Type Zip to Update");
+                            contact.Zip = Convert.ToInt32(Console.ReadLine()); break;
                         case 8:
-                            Console.WriteLine("Enter the MobileNumber to Update");
-                            contact.MobileNumber = Convert.ToInt64(Console.ReadLine()); 
+                            Console.WriteLine("Type Mobile to Update");
+                            contact.Phone = Convert.ToInt64(Console.ReadLine());
+                            break;
+                        default:
+                            Console.WriteLine("type correct option");
                             break;
                     }
                 }
-                Display();
+
             }
+            Display();
         }
-        public void DeletingContactINAddressBook(string name)
+
+        public void Delete()
         {
             Contact delete = new Contact();
-            foreach (var contact in addressBook)
+            Console.WriteLine("enter first name");
+            string name = Convert.ToString(Console.ReadLine());
+            foreach (var contact in addBook)
             {
-                if (contact.FirstName.Equals(name))
+                if (contact.firstName.Equals(name))
                 {
                     delete = contact;
                 }
             }
-            addressBook.Remove(delete);
+            addBook.Remove(delete);
             Display();
         }
+        public void Adddict(string name)
+        {
+            if (dictName == null)
+            {
+                dictName.Add(name, addBook);
+            }
+            if (NameExists(name) == false)
+            {
+                dictName.Add(name, addBook);
+            }
+            Console.WriteLine(dictName);
+        }
+        public bool NameExists(string name)
+        {
+            foreach (var dictionary in dictName.Keys)
+            {
+                if (dictionary.Equals(name))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

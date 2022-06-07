@@ -7,7 +7,7 @@ public class Program
     {
         Console.WriteLine("Welcome To address book");
         Console.WriteLine("1.Add contact Details\n2.Edit Contact Details\n3.Delete Contact from addressbook");
-        AddressBook address = new AddressBook();
+        AddressBook addressBook = new AddressBook();
 
         bool check = true;
         while (check)
@@ -18,21 +18,27 @@ public class Program
             switch (Option)
             {
                 case 1:
-                    address.Display();
+                    addressBook.Display();
                     break;
                 case 2:
-                    Console.WriteLine("Enter the name for edit");
+                    Console.WriteLine("Enter the first name to edit");
                     string name = Console.ReadLine();
-                    address.EditContactInAddressBook(name);
+                    addressBook.EditAddress(name);
                     break;
                 case 3:
-                    Console.WriteLine("Enter the Name for Delete");
-                    string firstname = Console.ReadLine();
-                    address.DeletingContactINAddressBook(firstname); break;
+                    Console.WriteLine("enter first name to delete");
+                    addressBook.Delete();
+                    break;
+                case 4:
+                    Console.WriteLine("enter name for add data dictionary");
+                    string dictionaryName = Console.ReadLine();
+                    addressBook.Adddict(dictionaryName);
+                    break;
                 default:
                     check = false;
                     break;
             }
         }
+        }
     }
-}
+
