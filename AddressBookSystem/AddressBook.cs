@@ -174,5 +174,16 @@ namespace AddressBookSystem
             }
             return false;
         }
+        public void SearchingPersonInCity(string cityName)
+        {
+            foreach (var contact in addBook)
+            {
+                if (contact.City.Equals(cityName))
+                {
+                    Console.WriteLine(contact.firstName + " " + contact.lastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Phone);
+                }
+
+            }
+        }
     }
 }

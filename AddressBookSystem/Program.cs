@@ -47,6 +47,11 @@ public class Program
                     string deleteName = Console.ReadLine();
                     addressBook.DeleteContactInAddressBook(deleteName);
                     break;
+                case 7:
+                    Console.WriteLine("Enter the City Name for Search Person City in Dictionary ");
+                    string cityName = Console.ReadLine();
+                    addressBook.SearchingPersonInCity(cityName); 
+                    break;
                 default:
                     check = false;
                     break;
