@@ -5,16 +5,22 @@ public class Program
 {
     public static void Main(String[] args)
     {
-        Contact Addresbook = new Contact();
-        Console.WriteLine("Enter details");
-        Addresbook.FirstName = Console.ReadLine();
-        Addresbook.LastName = Console.ReadLine();
-        Addresbook.Address = Console.ReadLine();
-        Addresbook.City = Console.ReadLine();
-        Addresbook.State = Console.ReadLine();
-        Addresbook.Email= Console.ReadLine();
-        Addresbook.Pincode = Convert.ToInt32(Console.ReadLine());
-        Addresbook.Mobile = Convert.ToInt64(Console.ReadLine());
-        Console.WriteLine(Addresbook.FirstName+" "+Addresbook.LastName+" "+Addresbook.Address+" "+Addresbook.City+" "+Addresbook.State+" "+Addresbook.Email+" "+Addresbook.Pincode+" "+Addresbook.Mobile);
+        Console.WriteLine("Welcome To address book");
+        AddressBook address = new AddressBook();
+        bool check = true;
+        while(check)
+        {
+            Console.WriteLine("Enter Above option");
+            int Option = Convert.ToInt32(Console.ReadLine());
+            switch(Option)
+            {
+                case 1:
+                    address.Display();
+                    break;
+                default:
+                    check = false;
+                    break;
+            }
+        }
     }
 }
