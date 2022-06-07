@@ -115,11 +115,9 @@ namespace AddressBookSystem
             Display();
         }
 
-        public void Delete()
+        public void DeleteContactInAddressBook(string name)
         {
             Contact delete = new Contact();
-            Console.WriteLine("enter first name");
-            string name = Convert.ToString(Console.ReadLine());
             foreach (var contact in addBook)
             {
                 if (contact.firstName.Equals(name))
@@ -130,7 +128,7 @@ namespace AddressBookSystem
             addBook.Remove(delete);
             Display();
         }
-        public void Adddict(string name)
+        public void AddDictionary(string name)
         {
             if (dictName == null)
             {
@@ -140,30 +138,41 @@ namespace AddressBookSystem
             {
                 dictName.Add(name, addBook);
             }
-            Console.WriteLine(dictName);
+
         }
-        public void EditDict(string name, string contName)
+        public void EditDict(string name, string contactName)
         {
             foreach (var data in dictName)
             {
                 if (dictName.Keys.Equals(name))
                 {
                     addBook = data.Value;
-                    EditAddress(contName);
+                    EditAddress(contactName);
                 }
             }
         }
+        public void DeleteDictionaryData(string name)
+        {
+            foreach (var data in dictName)
+            {
+                if (data.Key.Equals(name))
+                {
+                    addBook = data.Value;
+                    DeleteContactInAddressBook(name);
+                }
+            }
+            dictName.Remove(name);
+        }
         public bool NameExists(string name)
         {
-            foreach (var dictionary in dictName.Keys)
+            foreach (var data in dictName.Keys)
             {
-                if (dictionary.Equals(name))
+                if (data.Equals(name))
                 {
                     return true;
                 }
             }
             return false;
         }
-
     }
 }

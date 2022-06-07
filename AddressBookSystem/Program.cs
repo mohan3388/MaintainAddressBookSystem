@@ -27,7 +27,8 @@ public class Program
                     break;
                 case 3:
                     Console.WriteLine("enter first name to delete");
-                    addressBook.Delete();
+                    string name1 = Console.ReadLine();
+                    addressBook.DeleteContactInAddressBook(name1);
                     break;
                 case 4:
                     Console.WriteLine("enter name for add data dictionary");
@@ -39,6 +40,12 @@ public class Program
                     string dictname = Console.ReadLine();
                     string contactName = Console.ReadLine();
                     addressBook.EditDict(dictname, contactName);
+                    break;
+                case 6:
+                    Console.WriteLine("Enter the Dictionary and Name to Delete Dictionary");
+                  
+                    string deleteName = Console.ReadLine();
+                    addressBook.DeleteContactInAddressBook(deleteName);
                     break;
                 default:
                     check = false;
