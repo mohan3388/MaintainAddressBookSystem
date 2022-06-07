@@ -34,6 +34,12 @@ public class Program
                     string dictionaryName = Console.ReadLine();
                     addressBook.Adddict(dictionaryName);
                     break;
+                case 5:
+                    Console.WriteLine("enter the name for Edit data");
+                    string dictname = Console.ReadLine();
+                    string contactName = Console.ReadLine();
+                    addressBook.EditDict(dictname, contactName);
+                    break;
                 default:
                     check = false;
                     break;

@@ -142,6 +142,17 @@ namespace AddressBookSystem
             }
             Console.WriteLine(dictName);
         }
+        public void EditDict(string name, string contName)
+        {
+            foreach (var data in dictName)
+            {
+                if (dictName.Keys.Equals(name))
+                {
+                    addBook = data.Value;
+                    EditAddress(contName);
+                }
+            }
+        }
         public bool NameExists(string name)
         {
             foreach (var dictionary in dictName.Keys)
