@@ -52,6 +52,10 @@ public class Program
                     string cityName = Console.ReadLine();
                     addressBook.SearchingPersonInCity(cityName); 
                     break;
+                    case 8:
+                    Console.WriteLine("Enter city and view persons by city Dictionary ");
+                    string city = Console.ReadLine();
+                    addressBook.MaintainDictionaryWithCityAndPerson(city); break;
                 default:
                     check = false;
                     break;
