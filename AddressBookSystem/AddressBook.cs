@@ -11,7 +11,7 @@ namespace AddressBookSystem
         List<Contact> addBook = new List<Contact>();
         Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         Dictionary<string, string> cityPerson = new Dictionary<string, string>();
-       
+
         public AddressBook()
         {
             Contact contact1 = new Contact()
@@ -200,6 +200,16 @@ namespace AddressBookSystem
                 if (contact.Value.Equals(cityName))
                 {
                     Console.WriteLine(contact.Key + " " + contact.Value);
+                }
+            }
+        }
+        public void PhoneNumberByCity(string cityName)
+        {
+            foreach (var contact in addBook)
+            {
+                if (contact.City.Equals(cityName))
+                {
+                    Console.WriteLine("Mobile Number is" + contact.Phone);
                 }
             }
         }

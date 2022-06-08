@@ -6,7 +6,7 @@ public class Program
     public static void Main(String[] args)
     {
         Console.WriteLine("Welcome To address book");
-        Console.WriteLine("1.Add contact Details\n2.Edit Contact Details\n3.Delete Contact from addressbook");
+        Console.WriteLine("1.Add contact Details\n2.Edit Contact Details\n3.Delete Contact from addressbook\n4.Add Data in Dictionary\n5.Edit data in Dictionary\n6.Delete data from dictionary\n7.Search person using Cityname\n8.view person detais using Cityname\n9.Get Phone Number by City\n ");
         AddressBook addressBook = new AddressBook();
 
         bool check = true;
@@ -43,24 +43,30 @@ public class Program
                     break;
                 case 6:
                     Console.WriteLine("Enter the Dictionary and Name to Delete Dictionary");
-                  
+
                     string deleteName = Console.ReadLine();
                     addressBook.DeleteContactInAddressBook(deleteName);
                     break;
                 case 7:
                     Console.WriteLine("Enter the City Name for Search Person City in Dictionary ");
                     string cityName = Console.ReadLine();
-                    addressBook.SearchingPersonInCity(cityName); 
+                    addressBook.SearchingPersonInCity(cityName);
                     break;
-                    case 8:
+                case 8:
                     Console.WriteLine("Enter city and view persons by city Dictionary ");
                     string city = Console.ReadLine();
-                    addressBook.MaintainDictionaryWithCityAndPerson(city); break;
+                    addressBook.MaintainDictionaryWithCityAndPerson(city); 
+                    break;
+                case 9:
+                    Console.WriteLine("Get Person Phone number by City");
+                    
+                    string Cityname = Console.ReadLine();
+                    addressBook.PhoneNumberByCity(Cityname);
+                    break;
                 default:
                     check = false;
                     break;
             }
         }
-        }
     }
-
+}
