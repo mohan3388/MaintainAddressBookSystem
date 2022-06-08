@@ -1,0 +1,32 @@
+[
+  {
+    "firstName": "Mohan",
+    "lastName": "Sahu",
+    "Address": "Kanhera",
+    "City": "Bemetara",
+    "State": "Chhattisgarh",
+    "Email": "sahumoh123@gmail.com",
+    "Zip": "491132",
+    "Phone": "62548752021"
+  },
+  {
+    "firstName": "Govind",
+    "lastName": "Bhatt",
+    "Address": "Pandariya",
+    "City": "Kawardha",
+    "State": "Chhattisgarh",
+    "Email": "rajsa12@gmail.com",
+    "Zip": "754890",
+    "Phone": "9208102054"
+  },
+  {
+    "firstName": "Churamani",
+    "lastName": "Kumar",
+    "Address": "Baloda",
+    "City": "Raipur",
+    "State": "MadhyaPradesh",
+    "Email": "chura54@gmail.com",
+    "Zip": "215487",
+    "Phone": "9652102054"
+  }
+]
