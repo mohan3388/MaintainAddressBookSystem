@@ -11,7 +11,7 @@ namespace AddressBookSystem
         List<Contact> addBook = new List<Contact>();
         Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         Dictionary<string, string> cityPerson = new Dictionary<string, string>();
-
+        string File_Path = "";
         public AddressBook()
         {
             Contact contact1 = new Contact()
@@ -230,6 +230,25 @@ namespace AddressBookSystem
                 Console.WriteLine(contact.firstName + " " + contact.lastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Phone);
 
 
+            }
+        }
+        public void ReadIOFile()
+        {
+            if (File.Exists(FILE_PATH))
+            {
+                StreamReader read = new StreamReader(FILE_PATH);
+                try
+                {
+                    string s = "";
+                    while ((s = read.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }
