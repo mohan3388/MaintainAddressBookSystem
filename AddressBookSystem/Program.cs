@@ -6,7 +6,7 @@ public class Program
     public static void Main(String[] args)
     {
         Console.WriteLine("Welcome To address book");
-        Console.WriteLine("1.Add contact Details\n2.Edit Contact Details\n3.Delete Contact from addressbook\n4.Add Data in Dictionary\n5.Edit data in Dictionary\n6.Delete data from dictionary\n7.Search person using Cityname\n8.view person detais using Cityname\n9.Get Phone Number by City\n ");
+        Console.WriteLine("1.Add contact Details\n2.Edit Contact Details\n3.Delete Contact from addressbook\n4.Add Data in Dictionary\n5.Edit data in Dictionary\n6.Delete data from dictionary\n7.Search person using Cityname\n8.view person detais using Cityname\n9.Get Phone Number by City\n10.sort the entry person name\n11.Sort City and State");
         AddressBook addressBook = new AddressBook();
 
         bool check = true;

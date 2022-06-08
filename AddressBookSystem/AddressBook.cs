@@ -222,5 +222,15 @@ namespace AddressBookSystem
 
             }
         }
+        public void SortCityAndState()
+        {
+            var result = this.addBook.OrderBy(x => x.City).ToList();
+            foreach (var contact in result)
+            {
+                Console.WriteLine(contact.firstName + " " + contact.lastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Phone);
+
+
+            }
+        }
     }
 }
