@@ -11,7 +11,7 @@ namespace AddressBookSystem
         List<Contact> addBook = new List<Contact>();
         Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         Dictionary<string, string> cityPerson = new Dictionary<string, string>();
-        string File_Path = "";
+        string File_Path = "D:\dotnet\MaintainAddressbook\MaintainAddressBookSystem\AddressBookSystem\Addressbook.txt";
         public AddressBook()
         {
             Contact contact1 = new Contact()
