@@ -213,5 +213,14 @@ namespace AddressBookSystem
                 }
             }
         }
+        public void SortPersonName()
+        {
+            var result = addBook.OrderBy(x => x.firstName).ToList();
+            foreach (var contact in result)
+            {
+                Console.WriteLine(contact.firstName + " " + contact.lastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Phone);
+
+            }
+        }
     }
 }

@@ -63,6 +63,10 @@ public class Program
                     string Cityname = Console.ReadLine();
                     addressBook.PhoneNumberByCity(Cityname);
                     break;
+                case 10:
+                    Console.WriteLine("Sort the person name address book alphabatically");
+                    addressBook.SortPersonName();
+                    break;
                 default:
                     check = false;
                     break;
