@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,9 @@ namespace AddressBookSystem
         List<Contact> addBook = new List<Contact>();
         Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         Dictionary<string, string> cityPerson = new Dictionary<string, string>();
-        string File_Path = "";
+        const string FILE_PATH = @"D:\dotnet\MaintainAddressbook\MaintainAddressBookSystem\AddressBookSystem\Addressbook.txt";
+        const string READ_CSV_FILE = @"D:\dotnet\MaintainAddressbook\MaintainAddressBookSystem\AddressBookSystem\AddressbookData.CSV";
+        const string WRITE_CSV_FILE = @"D:\dotnet\MaintainAddressbook\MaintainAddressBookSystem\AddressBookSystem\Addressbook.CSV";
         public AddressBook()
         {
             Contact contact1 = new Contact()
@@ -248,6 +252,28 @@ namespace AddressBookSystem
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void ReadAndWriteDataFromTheCSVFile()
+        {
+            using (var reader = new StreamReader(READ_CSV_FILE))
+            {
+                using (var Csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    var records = Csv.GetRecords<Contact>().ToList();
+                    foreach (var contact in records)
+                    {
+                        Console.WriteLine(contact.firstName + " " + contact.lastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + contact.Zip + " " + contact.Phone);
+                    }
+                    using (var writer = new StreamWriter(WRITE_CSV_FILE))
+                    {
+                        using (var CsvExport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                        {
+                            CsvExport.WriteRecords(records);
+
+                        }
+                    }
                 }
             }
         }
